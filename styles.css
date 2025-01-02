@@ -1,51 +1,58 @@
 * {
   box-sizing: border-box;
+  --blue: #0af;
+  --green: #0f0;
+  --red: #f00;
 }
 .container{
   display: flex;
   flex-direction: column;
   width: 50vw;
+  gap: 1rem;
 }
-.input {
-  border: 1px solid #aaa;
-  outline: none;
-  font-size: inherit;
-  padding: 0.5em;
-  border-radius: 0.2em;
-}
+@layer input{
+  .input {
+    border: 1px solid #aaa;
+    outline: none;
+    font-size: inherit;
+    padding: 0.5em;
+    border-radius: 0.2em;
+    &:focus-visible {
+      border-color: var(--blue);
+      box-shadow: 0 0 5px 0 var(--blue);
+    }
 
-.input:focus-visible {
-  border-color: #0af;
-  box-shadow: 0 0 5px 0 #0af;
-}
+  }
+  .input-success {
+    border-color: #27ae60;
+    &:focus-visible {
+      border-color: var(--green);
+      box-shadow: 0 0 5px 0 var(--green);
+    }
 
-.input.input-success {
-  border-color: #27ae60;
-}
+  }
 
-.input.input-success:focus-visible {
-  border-color: #0f0;
-  box-shadow: 0 0 5px 0 #0f0;
-}
+  .input.input-error {
+    border-color: #eb5757;
+    &:focus-visible {
+      border-color: var(--red);
+      box-shadow: 0 0 5px 0 var(--red);
+    }
 
-.input.input-error {
-  border-color: #eb5757;
-}
+  }
 
-.input.input-error:focus-visible {
-  border-color: #f00;
-  box-shadow: 0 0 5px 0 #f00;
-}
 
-.input.input-large {
-  font-size: 1.25rem;
-}
+  .input.input-large {
+    font-size: 1.25rem;
+  }
 
-.input.input-small {
-  font-size: 0.75rem;
-}
+  .input.input-small {
+    font-size: 0.75rem;
+  }
 
-.input:disabled {
-  background-color: #eaeaea;
-  cursor: not-allowed;
+  .input:disabled {
+    background-color: #eaeaea;
+    cursor: not-allowed;
+  }
+
 }
